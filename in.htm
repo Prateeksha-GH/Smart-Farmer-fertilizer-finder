@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KrishiMart – Fertilizer Shop Finder | Davanagere</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+ 
+   
+  
+</head>
+<body>
+    <script src="javascript.js"></script>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#home" class="nav-logo">
+      <div class="logo-icon">🌿</div>
+      <div class="logo-text">
+        <span class="logo-name">KrishiMart</span>
+        <span class="logo-sub">Davanagere</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#shops">Shops</a></li>
+      <li><a href="#discounts">Discounts</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#shops" class="nav-cta">Book Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="leaf leaf-1">🍀</div>
+    <div class="leaf leaf-2">🌾</div>
+    <div class="leaf leaf-3">🌱</div>
+
+    <div class="hero-badge">📍 Serving Davanagere District</div>
+    <h1 class="hero-title">Find the Best <span>Fertilizer Shops</span> Near You</h1>
+    <p class="hero-subtitle">Discover trusted agro shops, exclusive discounts, and book fertilizers online — all in one place for Davanagere farmers.</p>
+
+    <div class="search-card">
+      <span class="search-label">🔍 Search by Location or Area</span>
+      <div class="search-row">
+        <div class="search-input-wrap">
+          <span class="input-icon">📍</span>
+          <input
+            type="text"
+            class="search-input"
+            id="locationInput"
+            placeholder="Enter your area, village or pincode…"
+            oninput="filterShops(this.value)"
+          />
+        </div>
+        <button class="search-btn" onclick="triggerSearch()">
+          🔎 Find Shops
+        </button>
+      </div>
+      <div class="filter-row">
+        <span class="filter-tag active" onclick="toggleTag(this,'all')">All Types</span>
+        <span class="filter-tag" onclick="toggleTag(this,'organic')">🌿 Organic</span>
+        <span class="filter-tag" onclick="toggleTag(this,'chemical')">🧪 Chemical</span>
+        <span class="filter-tag" onclick="toggleTag(this,'seeds')">🌾 Seeds</span>
+        <span class="filter-tag" onclick="toggleTag(this,'pesticide')">🛡️ Pesticide</span>
+        <span class="filter-tag" onclick="toggleTag(this,'discount')">🏷️ Discount Shops</span>
+      </div>
+    </div>
+
+    <div class="stats-strip">
+      <div class="stat"><span class="stat-num">48+</span><span class="stat-label">Shops Listed</span></div>
+      <div class="stat"><span class="stat-num">12</span><span class="stat-label">Areas Covered</span></div>
+      <div class="stat"><span class="stat-num">3200+</span><span class="stat-label">Farmers Served</span></div>
+      <div class="stat"><span class="stat-num">25%</span><span class="stat-label">Max Discount</span></div>
+    </div>
+  </section>
+
+  <!-- SHOP RESULTS -->
+  <section id="shops">
+    <div class="section-header">
+      <span class="section-eyebrow">🏪 Nearby Shops</span>
+      <h2 class="section-title">Top <span>Fertilizer Shops</span> in Davanagere</h2>
+      <p class="section-desc">Explore verified shops with ratings, product tags, and instant online booking.</p>
+    </div>
+
+    <div class="shops-grid" id="shopsGrid">
+
+      <div class="shop-card" data-area="jayanagar">
+        <div class="shop-img">🌾
+          <span class="discount-badge">15% OFF</span>
+        </div>
+        <div class="shop-body">
+          <div class="shop-name">Sri Basaveshwara Agro</div>
+          <div class="shop-location">📍 Jayanagar, Davanagere</div>
+          <div class="shop-tags">
+            <span class="shop-tag">Organic</span>
+            <span class="shop-tag">Seeds</span>
+            <span class="shop-tag">Pesticide</span>
+          </div>
+          <div class="shop-footer">
+            <div class="shop-rating"><span class="stars">★★★★★</span> 4.8 (124)</div>
+            <button class="book-btn" onclick="openModal('Sri Basaveshwara Agro')">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-area="mcc">
+        <div class="shop-img">🌿
+          <span class="discount-badge">20% OFF</span>
+        </div>
+        <div class="shop-body">
+          <div class="shop-name">Krishi Seva Kendra</div>
+          <div class="shop-location">📍 MCC Block, Davanagere</div>
+          <div class="shop-tags">
+            <span class="shop-tag">Chemical</span>
+            <span class="shop-tag">NPK Fertilizer</span>
+          </div>
+          <div class="shop-footer">
+            <div class="shop-rating"><span class="stars">★★★★☆</span> 4.5 (89)</div>
+            <button class="book-btn" onclick="openModal('Krishi Seva Kendra')">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-area="p.j.extension">
+        <div class="shop-img">🌱
+          <span class="discount-badge">10% OFF</span>
+        </div>
+        <div class="shop-body">
+          <div class="shop-name">Nandi Farm Inputs</div>
+          <div class="shop-location">📍 P.J. Extension, Davanagere</div>
+          <div class="shop-tags">
+            <span class="shop-tag">Seeds</span>
+            <span class="shop-tag">Organic</span>
+          </div>
+          <div class="shop-footer">
+            <div class="shop-rating"><span class="stars">★★★★☆</span> 4.3 (67)</div>
+            <button class="book-btn" onclick="openModal('Nandi Farm Inputs')">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-area="bathi">
+        <div class="shop-img">🧪
+          <span class="discount-badge">25% OFF</span>
+        </div>
+        <div class="shop-body">
+          <div class="shop-name">Green Earth Fertilizers</div>
+          <div class="shop-location">📍 Bathi Road, Davanagere</div>
+          <div class="shop-tags">
+            <span class="shop-tag">Chemical</span>
+            <span class="shop-tag">Pesticide</span>
+            <span class="shop-tag">Bulk Orders</span>
+          </div>
+          <div class="shop-footer">
+            <div class="shop-rating"><span class="stars">★★★★★</span> 4.9 (212)</div>
+            <button class="book-btn" onclick="openModal('Green Earth Fertilizers')">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-area="hadadi">
+        <div class="shop-img">🌻
+          <span class="discount-badge">12% OFF</span>
+        </div>
+        <div class="shop-body">
+          <div class="shop-name">Annadata Agro Store</div>
+          <div class="shop-location">📍 Hadadi Road, Davanagere</div>
+          <div class="shop-tags">
+            <span class="shop-tag">Organic</span>
+            <span class="shop-tag">Micronutrients</span>
+          </div>
+          <div class="shop-footer">
+            <div class="shop-rating"><span class="stars">★★★★☆</span> 4.4 (55)</div>
+            <button class="book-btn" onclick="openModal('Annadata Agro Store')">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-card" data-area="harihar">
+        <div class="shop-img">🌿
+          <span class="discount-badge">18% OFF</span>
+        </div>
+        <div class="shop-body">
+          <div class="shop-name">Raitha Mitra Centre</div>
+          <div class="shop-location">📍 Harihar, Davanagere Dist.</div>
+          <div class="shop-tags">
+            <span class="shop-tag">Seeds</span>
+            <span class="shop-tag">Chemical</span>
+            <span class="shop-tag">Organic</span>
+          </div>
+          <div class="shop-footer">
+            <div class="shop-rating"><span class="stars">★★★★★</span> 4.7 (178)</div>
+            <button class="book-btn" onclick="openModal('Raitha Mitra Centre')">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DISCOUNTS -->
+  <section id="discounts">
+    <div class="section-header">
+      <span class="section-eyebrow">🏷️ Exclusive Offers</span>
+      <h2 class="section-title">Current <span style="color:var(--gold)">Discounts</span> & Offers</h2>
+      <p class="section-desc">Limited-time seasonal offers from top shops in Davanagere.</p>
+    </div>
+
+    <div class="discounts-grid">
+      <div class="discount-card">
+        <div class="discount-pct">25%</div>
+        <div class="discount-off">OFF</div>
+        <div class="discount-name">Urea & DAP Combo</div>
+        <div class="discount-shop">Green Earth Fertilizers</div>
+        <div class="discount-expiry">⏳ Expires Mar 31, 2026</div>
+      </div>
+      <div class="discount-card">
+        <div class="discount-pct">20%</div>
+        <div class="discount-off">OFF</div>
+        <div class="discount-name">All Chemical Fertilizers</div>
+        <div class="discount-shop">Krishi Seva Kendra</div>
+        <div class="discount-expiry">⏳ Expires Apr 10, 2026</div>
+      </div>
+      <div class="discount-card">
+        <div class="discount-pct">18%</div>
+        <div class="discount-off">OFF</div>
+        <div class="discount-name">Hybrid Seeds Range</div>
+        <div class="discount-shop">Raitha Mitra Centre</div>
+        <div class="discount-expiry">⏳ Expires Mar 25, 2026</div>
+      </div>
+      <div class="discount-card">
+        <div class="discount-pct">15%</div>
+        <div class="discount-off">OFF</div>
+        <div class="discount-name">Organic Compost Packs</div>
+        <div class="discount-shop">Sri Basaveshwara Agro</div>
+        <div class="discount-expiry">⏳ Expires Apr 5, 2026</div>
+      </div>
+      <div class="discount-card">
+        <div class="discount-pct">12%</div>
+        <div class="discount-off">OFF</div>
+        <div class="discount-name">Micronutrient Bundles</div>
+        <div class="discount-shop">Annadata Agro Store</div>
+        <div class="discount-expiry">⏳ Expires Apr 20, 2026</div>
+      </div>
+      <div class="discount-card">
+        <div class="discount-pct">10%</div>
+        <div class="discount-off">OFF</div>
+        <div class="discount-name">Vegetable Seeds Pack</div>
+        <div class="discount-shop">Nandi Farm Inputs</div>
+        <div class="discount-expiry">⏳ Expires Mar 30, 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <span class="section-eyebrow">🌱 About KrishiMart</span>
+        <h2 class="section-title">Connecting <span>Farmers</span> to the Right Resources</h2>
+        <p>KrishiMart is a dedicated platform for farmers and agri-businesses in Davanagere District. We help you quickly locate nearby fertilizer shops, compare products, discover seasonal discounts, and place orders online — saving you time and money.</p>
+        <p>Our verified shop listings are regularly updated so you always have access to trusted, quality-assured agricultural inputs for a better harvest season.</p>
+        <div class="about-features">
+          <div class="about-feat">
+            <div class="feat-icon">🗺️</div>
+            <div class="feat-text"><strong>Location Search</strong><span>Find shops by village, ward, or pin</span></div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">🏷️</div>
+            <div class="feat-text"><strong>Live Discounts</strong><span>Seasonal offers updated daily</span></div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">📲</div>
+            <div class="feat-text"><strong>Online Booking</strong><span>Reserve stock without visiting</span></div>
+          </div>
+          <div class="about-feat">
+            <div class="feat-icon">✅</div>
+            <div class="feat-text"><strong>Verified Shops</strong><span>All listings are authenticated</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <span>🌾</span>
+        <p>Davanagere's Agri Hub</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <span class="section-eyebrow">📬 Get In Touch</span>
+        <h2 class="section-title">Contact <span>KrishiMart</span></h2>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <strong>Address</strong>
+              <span>PJ Extension, Davanagere – 577002, Karnataka</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-text">
+              <strong>Phone</strong>
+              <span>+91 98440 00000</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div class="contact-item-text">
+              <strong>Email</strong>
+              <span>support@krishimart.in</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div class="contact-item-text">
+              <strong>Working Hours</strong>
+              <span>Mon – Sat: 8 AM – 7 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-card">
+        <div class="contact-form-title">✉️ Send Us a Message</div>
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Your Name</label>
+              <input type="text" class="form-input" placeholder="Ramesh Kumar" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone</label>
+              <input type="tel" class="form-input" placeholder="+91 XXXXXXXXXX" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <input type="text" class="form-input" placeholder="Shop listing / Discount query…" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-input" placeholder="Write your message here…"></textarea>
+          </div>
+          <button class="submit-btn" onclick="sendContact(this)">📤 Send Message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <strong>KrishiMart</strong> — Fertilizer Shop Finder, Davanagere. All rights reserved. | Built for Karnataka Farmers 🌾</p>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div id="bookingForm">
+        <div class="modal-title">📲 Online Booking</div>
+        <div class="modal-shop-name" id="modalShopName">Shop Name</div>
+        <div class="form-group">
+          <label class="form-label">Your Full Name</label>
+          <input type="text" class="form-input" id="bName" placeholder="e.g. Suresh Patil" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-input" id="bPhone" placeholder="+91 XXXXXXXXXX" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Village / Area</label>
+            <input type="text" class="form-input" id="bArea" placeholder="Your location" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Product / Fertilizer Type</label>
+          <select class="form-select" id="bProduct">
+            <option value="">— Select Product —</option>
+            <option>Urea (Nitrogen)</option>
+            <option>DAP (Di-Ammonium Phosphate)</option>
+            <option>NPK Mixture</option>
+            <option>Organic Compost</option>
+            <option>Potash (MOP)</option>
+            <option>Hybrid Seeds</option>
+            <option>Pesticide / Insecticide</option>
+            <option>Micronutrients</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Quantity (Bags/Kg)</label>
+            <input type="number" class="form-input" id="bQty" placeholder="e.g. 5" min="1" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Preferred Date</label>
+            <input type="date" class="form-input" id="bDate" />
+          </div>
+        </div>
+        <button class="submit-btn" onclick="submitBooking()">✅ Confirm Booking</button>
+      </div>
+      <div class="success-msg" id="successMsg">
+        <span class="success-icon">🎉</span>
+        <div class="success-text">Booking Confirmed!</div>
+        <div class="success-sub">Our team will contact you within 2 hours to confirm your order.</div>
+      </div>
+    </div>
+  </div>
+
+ 
+</body>
+</html>
